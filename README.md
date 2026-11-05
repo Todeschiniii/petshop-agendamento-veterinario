@@ -36,6 +36,7 @@ Regras:
 | `AgendaLotadaException` | Exceção para agenda com os 10 horários ocupados. |
 | `HorarioOcupadoException` | Exceção para horário já ocupado. |
 | `banco.sql` | Cria o banco `petshop` e a tabela `agenda`. |
+| `dados-exemplo.sql` | Preenche a agenda com 8 consultas de exemplo (horários 5 e 8 livres), para a apresentação. |
 
 ## Requisitos
 
@@ -61,6 +62,18 @@ Com o MySQL em execução, na pasta do projeto:
    ```
 
 O programa conecta em `jdbc:mysql://localhost:3306/petshop` com o usuário `petshop` e a senha `1234` (veja `ConexaoBD.java`). Essa senha é só para uso local, nos estudos.
+
+### Dados de exemplo (para a apresentação)
+
+O `dados-exemplo.sql` **apaga a agenda atual** e grava 8 consultas: cachorros nos horários 0, 2, 4 e 7 e gatos nos horários 1, 3, 6 e 9. Os horários **5 e 8 ficam livres**, para agendar ao vivo. Depois de preencher os dois, a agenda fica lotada e dá para mostrar esse aviso também.
+
+Rode o script depois do `banco.sql`, no MySQL Workbench (abra o arquivo e execute) ou pelo terminal:
+
+```
+mysql -u root -p -e "source dados-exemplo.sql"
+```
+
+Pode rodar de novo sempre que quiser voltar a agenda a esse estado, por exemplo antes de cada ensaio.
 
 ## Como executar
 
